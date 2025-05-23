@@ -58,7 +58,7 @@ export default function Home({ posts }) {
                                             <div className="text-base leading-6 font-medium">
                                                 <Link
                                                     href={`/blog/${slug}`}
-                                                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                                                    className="text-cedar hover:text-cedarHover dark:text-sky dark:hover:text-skyHover"
                                                     aria-label={`Read more: "${title}"`}
                                                 >
                                                     Read more &rarr;
@@ -76,16 +76,11 @@ export default function Home({ posts }) {
                 <div className="flex justify-end text-base leading-6 font-medium">
                     <Link
                         href="/blog"
-                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        className="text-textBody-light hover:text-textBodyHover-light dark:hover:text-textBodyHover dark:text-textBody"
                         aria-label="All posts"
                     >
                         All Posts &rarr;
                     </Link>
-                </div>
-            )}
-            {siteMetadata.newsletter?.provider && (
-                <div className="flex items-center justify-center pt-4">
-                    <NewsletterForm />
                 </div>
             )}
         </>

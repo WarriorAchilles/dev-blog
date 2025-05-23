@@ -11,7 +11,7 @@ const siteMetadata = {
     siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
     socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
     // mastodon: 'https://mastodon.social/@mastodonuser',
-    email: 'address@yoursite.com',
+    // email: 'address@yoursite.com',
     github: 'https://github.com/WarriorAchilles',
     // x: 'https://twitter.com/x',
     // twitter: 'https://twitter.com/Twitter',
@@ -52,7 +52,7 @@ const siteMetadata = {
     newsletter: {
         // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive
         // Please add your .env file and modify it according to your selection
-        provider: 'buttondown',
+        // provider: 'buttondown',
     },
     comments: {
         // If you want to use an analytics provider you have to add it to the
