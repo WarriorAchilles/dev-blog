@@ -17,7 +17,7 @@ const Sun = () => (
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="group:hover:text-gray-100 h-6 w-6"
+        className="group:hover:text-textHeading h-6 w-6"
     >
         <path
             fillRule="evenodd"
@@ -31,7 +31,7 @@ const Moon = () => (
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="group:hover:text-gray-100 h-6 w-6"
+        className="group:hover:text-textHeading h-6 w-6"
     >
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
     </svg>
@@ -45,7 +45,7 @@ const Monitor = () => (
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="group:hover:text-gray-100 h-6 w-6"
+        className="group:hover:text-textHeading h-6 w-6"
     >
         <rect x="3" y="3" width="14" height="10" rx="2" ry="2"></rect>
         <line x1="7" y1="17" x2="13" y2="17"></line>
@@ -64,7 +64,7 @@ const ThemeSwitch = () => {
     return (
         <div className="flex items-center">
             <Menu as="div" className="relative inline-block text-left">
-                <div className="hover:text-primary-500 dark:hover:text-primary-400 flex items-center justify-center">
+                <div className="text-textHeading-light dark:text-textHeading flex items-center justify-center hover:text-black dark:hover:text-white">
                     <MenuButton aria-label="Theme switcher">
                         {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
                     </MenuButton>
@@ -78,7 +78,7 @@ const ThemeSwitch = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                 >
-                    <MenuItems className="ring-opacity-5 absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black focus:outline-hidden dark:bg-gray-800">
+                    <MenuItems className="ring-opacity-5 bg-background-light absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black focus:outline-hidden dark:bg-gray-800">
                         <RadioGroup value={theme} onChange={setTheme}>
                             <div className="p-1">
                                 <Radio value="light">

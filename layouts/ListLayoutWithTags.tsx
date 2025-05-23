@@ -87,7 +87,7 @@ export default function ListLayoutWithTags({
         <>
             <div>
                 <div className="pt-6 pb-6">
-                    <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
+                    <h1 className="text-textHeading-light dark:text-textHeading text-3xl leading-9 font-extrabold tracking-tight sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                         {title}
                     </h1>
                 </div>
@@ -136,7 +136,7 @@ export default function ListLayoutWithTags({
                                         <article className="flex flex-col space-y-2 xl:space-y-0">
                                             <dl>
                                                 <dt className="sr-only">Published on</dt>
-                                                <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                                                <dd className="dark:text-textBody text-base leading-6 font-medium text-gray-500">
                                                     <time dateTime={date} suppressHydrationWarning>
                                                         {formatDate(date, siteMetadata.locale)}
                                                     </time>
@@ -147,7 +147,7 @@ export default function ListLayoutWithTags({
                                                     <h2 className="text-2xl leading-8 font-bold tracking-tight">
                                                         <Link
                                                             href={`/${path}`}
-                                                            className="text-gray-900 dark:text-gray-100"
+                                                            className="text-textHeading-light dark:text-textHeading"
                                                         >
                                                             {title}
                                                         </Link>
@@ -158,7 +158,7 @@ export default function ListLayoutWithTags({
                                                         ))}
                                                     </div>
                                                 </div>
-                                                <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                                                <div className="prose dark:text-textBody max-w-none text-gray-500">
                                                     {summary}
                                                 </div>
                                             </div>

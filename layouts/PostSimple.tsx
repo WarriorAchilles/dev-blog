@@ -29,7 +29,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                             <dl>
                                 <div>
                                     <dt className="sr-only">Published on</dt>
-                                    <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                                    <dd className="dark:text-textBody text-base leading-6 font-medium text-gray-500">
                                         <time dateTime={date}>
                                             {formatDate(date, siteMetadata.locale)}
                                         </time>
