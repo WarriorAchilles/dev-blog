@@ -12,7 +12,7 @@
 
   /* Colors */
   /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
-  --color-primary-50: oklch(0.971 0.014 343.198);
+  /* --color-primary-50: oklch(0.971 0.014 343.198);
   --color-primary-100: oklch(0.948 0.028 342.258);
   --color-primary-200: oklch(0.899 0.061 343.231);
   --color-primary-300: oklch(0.823 0.12 346.018);
@@ -33,8 +33,32 @@
   --color-gray-600: oklch(0.446 0.03 256.802);
   --color-gray-700: oklch(0.373 0.034 259.733);
   --color-gray-800: oklch(0.278 0.033 256.848);
-  --color-gray-900: oklch(0.21 0.034 264.665);
-  --color-gray-950: oklch(0.13 0.028 261.692);
+  --color-gray-900: oklch(0.21 0.034 264.665);*/
+  --color-gray-950: var(--color-background);
+  --color-gray-100: var(--color-text-heading);
+  --color-gray-400: var(--color-text-body);
+
+   /* Midnight Kyoto - Dark Theme */
+  --color-background: #121212;
+  --color-surface: #1F1F1F;
+  --color-border: #2A2A2A;
+  --color-text-heading: #E7DFD1; /* Brighter beige for emphasis */
+  --color-text-body: #CFC5B8;    /* Soft rice beige */
+  --color-matcha: #90A955;
+  --color-koi: #CE5A57;
+  --color-cedar: #6C584C;
+  --color-sky: #6AB0F3;
+
+      /* Midnight Kyoto - Light Theme (optional) */
+  /* --color-background: #FDFCF8;
+  --color-surface: #F9F6F1;
+  --color-text-heading: #1C1C1C;
+  --color-text-body: #3C3C3C;
+  --color-matcha: #90A955;
+  --color-koi: #CE5A57;
+  --color-cedar: #6C584C;
+  --color-sky: #6AB0F3;
+  --color-border: #DCDCDC; */
 
   /* Line heights */
   --line-height-11: 2.75rem;
