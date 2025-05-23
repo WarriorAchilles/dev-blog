@@ -5,9 +5,9 @@ Follow the [official Next.js repo docker build example and instructions](https:/
 ```js
 // next.config.js
 module.exports = {
-  // ... rest of the configuration.
-  output: 'standalone',
-}
+    // ... rest of the configuration.
+    output: 'standalone',
+};
 ```
 
 You can now build the docker image and run it:

@@ -23,10 +23,10 @@ The template was first released in January 2021 and has since been used by thous
 Many thanks to the community of users and contributors for making this template a success! I created a small video montage of the blogs (while cleaning up the list in the readme) to showcase the diversity of the blogs created using the template and to celebrate the milestone:
 
 <video controls>
-  <source
-    src="https://github-production-user-asset-6210df.s3.amazonaws.com/28362229/258559849-2124c81f-b99d-4431-839c-347e01a2616c.webm"
-    type="video/webm"
-  />
+    <source
+        src="https://github-production-user-asset-6210df.s3.amazonaws.com/28362229/258559849-2124c81f-b99d-4431-839c-347e01a2616c.webm"
+        type="video/webm"
+    />
 </video>
 
 Version 2 builds on the success of the previous version and introduces many new features and improvements. The codebase has been refactored to support Next.js App directory and React Server Components. Markdown / MDX is now processed using Contentlayer, a type-safe content SDK that validates and transforms your content into type-safe JSON data. It integrates with Pliny, a new library that provides out of the box Next.js components to enhance your static site with analytics, comments and newsletter subscription. A new command palette (⌘-k) search component is also added to the template.
@@ -84,30 +84,30 @@ A large reason for the popularity of the template was its customizability and in
 To solve this, I have abstracted the logic to a separate repository - [Pliny](https://github.com/timlrx/pliny). Pliny provides out of the box Next.js components to enhance static sites:
 
 - Analytics
-  - Google Analytics
-  - Plausible Analytics
-  - Simple Analytics
-  - Umami Analytics
-  - Posthog
+    - Google Analytics
+    - Plausible Analytics
+    - Simple Analytics
+    - Umami Analytics
+    - Posthog
 - Comments
-  - Disqus
-  - Giscus
-  - Utterances
+    - Disqus
+    - Giscus
+    - Utterances
 - Newsletter (uses Next 13 API Routes)
-  - Buttondown
-  - Convertkit
-  - Email Octopus
-  - Klaviyo
-  - Mailchimp
-  - Revue
+    - Buttondown
+    - Convertkit
+    - Email Octopus
+    - Klaviyo
+    - Mailchimp
+    - Revue
 - Command palette search with tailwind style sheet
-  - Algolia
-  - Kbar (local search)
+    - Algolia
+    - Kbar (local search)
 - UI utility components
-  - Bleed
-  - Newsletter / Blog Newsletter
-  - Pre / Code block
-  - Table of Contents
+    - Bleed
+    - Newsletter / Blog Newsletter
+    - Pre / Code block
+    - Table of Contents
 
 Choose your preferred service by modifying `siteMetadata.js` and changing the appropriate fields. For example to change from Umami Analytics to Plausible, we can change the following fields:
 
