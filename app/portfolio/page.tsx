@@ -10,10 +10,11 @@ export default function Projects() {
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
                 <div className="space-y-2 pt-6 pb-8 md:space-y-5">
                     <h1 className="text-textHeading-light dark:text-textHeading text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                        Projects
+                        Portfolio
                     </h1>
                     <p className="dark:text-textBody text-lg leading-7 text-gray-500">
-                        Showcase your projects with a hero image (16 x 9)
+                        A list of my personal projects, some contracted work, and fun little
+                        experiments.
                     </p>
                 </div>
                 <div className="container py-12">
