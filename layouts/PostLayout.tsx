@@ -43,7 +43,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             <dl className="space-y-10">
                                 <div>
                                     <dt className="sr-only">Published on</dt>
-                                    <dd className="dark:text-textBody text-base leading-6 font-medium text-gray-500">
+                                    <dd className="dark:text-textBody text-textBody-light text-base leading-6 font-medium">
                                         <time dateTime={date}>
                                             {new Date(date).toLocaleDateString(
                                                 siteMetadata.locale,
@@ -105,7 +105,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             </dd>
                         </dl>
                         <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
-                            <div className="prose dark:prose-invert max-w-none pt-10 pb-8">
+                            <div className="prose dark:prose-invert text-textBody-light dark:text-textBody max-w-none pt-10 pb-8">
                                 {children}
                             </div>
                             <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
@@ -145,7 +145,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                                                 <h2 className="dark:text-textBody text-xs tracking-wide text-gray-500 uppercase">
                                                     Previous Article
                                                 </h2>
-                                                <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                                                <div className="text-koi dark:text-matcha hover:text-koiHover dark:hover:text-matchaHover">
                                                     <Link href={`/${prev.path}`}>{prev.title}</Link>
                                                 </div>
                                             </div>
@@ -155,7 +155,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                                                 <h2 className="dark:text-textBody text-xs tracking-wide text-gray-500 uppercase">
                                                     Next Article
                                                 </h2>
-                                                <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                                                <div className="text-koi dark:text-matcha hover:text-koiHover dark:hover:text-matchaHover">
                                                     <Link href={`/${next.path}`}>{next.title}</Link>
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             <div className="pt-4 xl:pt-8">
                                 <Link
                                     href={`/${basePath}`}
-                                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                                    className="text-koi dark:text-sky hover:text-koiHover dark:hover:text-skyHover"
                                     aria-label="Back to the blog"
                                 >
                                     &larr; Back to the blog

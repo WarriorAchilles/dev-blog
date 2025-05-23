@@ -59,7 +59,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                                 <div className="pt-4 xl:pt-8">
                                     <Link
                                         href={`/${prev.path}`}
-                                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                                        className="text-koi hover:text-koiHover dark:hover:text-matchaHover dark:text-matcha"
                                         aria-label={`Previous post: ${prev.title}`}
                                     >
                                         &larr; {prev.title}
@@ -70,7 +70,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                                 <div className="pt-4 xl:pt-8">
                                     <Link
                                         href={`/${next.path}`}
-                                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                                        className="text-koi hover:text-koiHover dark:hover:text-matchaHover dark:text-matcha"
                                         aria-label={`Next post: ${next.title}`}
                                     >
                                         {next.title} &rarr;

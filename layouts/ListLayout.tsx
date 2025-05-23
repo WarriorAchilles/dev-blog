@@ -100,7 +100,7 @@ export default function ListLayout({
                                 type="text"
                                 onChange={(e) => setSearchValue(e.target.value)}
                                 placeholder="Search articles"
-                                className="focus:border-primary-500 focus:ring-primary-500 text-textHeading-light dark:text-textHeading bg-background-light block w-full rounded-md border border-gray-300 px-4 py-2 dark:border-gray-900 dark:bg-gray-800"
+                                className="focus:ring-primary-500 text-textHeading-light dark:text-textHeading bg-background-light block w-full rounded-md border border-gray-300 px-4 py-2 dark:border-gray-900 dark:bg-gray-800"
                             />
                         </label>
                         <svg

@@ -37,14 +37,14 @@ export default function AuthorLayout({ children, content }: Props) {
                         <div className="dark:text-textBody text-gray-500">{occupation}</div>
                         <div className="dark:text-textBody text-gray-500">{company}</div>
                         <div className="flex space-x-3 pt-6">
-                            <SocialIcon kind="mail" href={`mailto:${email}`} />
+                            {/* <SocialIcon kind="mail" href={`mailto:${email}`} /> */}
                             <SocialIcon kind="github" href={github} />
                             <SocialIcon kind="linkedin" href={linkedin} />
                             <SocialIcon kind="x" href={twitter} />
                             <SocialIcon kind="bluesky" href={bluesky} />
                         </div>
                     </div>
-                    <div className="prose dark:prose-invert max-w-none pt-8 pb-8 xl:col-span-2">
+                    <div className="prose dark:prose-invert text-textBody-light dark:text-textBody max-w-none pt-8 pb-8 xl:col-span-2">
                         {children}
                     </div>
                 </div>

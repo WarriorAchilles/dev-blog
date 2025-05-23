@@ -67,12 +67,12 @@
     ::before,
     ::backdrop,
     ::file-selector-button {
-        border-color: var(--color-gray-200, currentColor);
+        border-color: var(--color-border, currentColor);
     }
 
     a,
     button {
-        outline-color: var(--color-primary-500);
+        outline-color: var(--color-border);
     }
 
     a:focus-visible,
@@ -86,12 +86,12 @@
 @layer utilities {
     .prose {
         & a {
-            color: var(--color-primary-500);
+            color: var(--color-koi);
             &:hover {
-                color: var(--color-primary-600);
+                color: var(--color-koiHover);
             }
             & code {
-                color: var(--color-primary-400);
+                /* color: var(--color-primary-400); */
             }
         }
         & :where(h1, h2) {
@@ -102,22 +102,25 @@
             font-weight: 600;
         }
         & :where(code):not(pre code) {
-            color: var(--color-indigo-500);
-        }
-    }
-
-    .prose-invert {
-        & a {
-            color: var(--color-primary-500);
-            &:hover {
-                color: var(--color-primary-400);
-            }
-            & code {
-                color: var(--color-primary-400);
-            }
+            /* color: var(--color-indigo-500); */
         }
         & :where(h1, h2, h3, h4, h5, h6) {
-            color: var(--color-gray-100);
+            color: var(--color-textHeading-light);
+        }
+
+        @variant dark {
+            & a {
+                color: var(--color-matcha);
+                &:hover {
+                    color: var(--color-matchaHover);
+                }
+                & code {
+                    /* color: var(--color-primary-400); */
+                }
+            }
+            & :where(h1, h2, h3, h4, h5, h6) {
+                color: var(--color-textHeading);
+            }
         }
     }
 }
