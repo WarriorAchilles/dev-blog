@@ -19,8 +19,11 @@
     --color-border: #2a2a2a;
     --color-textHeading: #e7dfd1; /* Brighter beige for emphasis */
     --color-textBody: #cfc5b8; /* Soft rice beige */
+    --color-textBodyHover: #e0d6c8;
     --color-matcha: #90a955;
+    --color-matchaHover: #a4bf69;
     --color-koi: #ce5a57;
+    --color-koiHover: #e46f68;
     --color-cedar: #6c584c;
     --color-sky: #6ab0f3;
 
@@ -29,6 +32,7 @@
     --color-surface-light: #f9f6f1;
     --color-textHeading-light: #1c1c1c;
     --color-textBody-light: #3c3c3c;
+    --color-textBodyHover-light: #1c1c1c;
     --color-matcha-light: #90a955;
     --color-koi-light: #ce5a57;
     --color-cedar-light: #6c584c;
