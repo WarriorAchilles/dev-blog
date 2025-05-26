@@ -9,17 +9,30 @@ const MAX_DISPLAY = 5;
 export default function Home({ posts }) {
     return (
         <>
-            <div className="container mb-2 flex h-[80vh] flex-col items-center justify-center">
-                <h1 className="text-textHeading-light dark:text-textHeading text-3xl">
-                    Zion Emond
-                </h1>
-                <p className="text-textBody-light dark:text-textBody mb-2">lorem ipsum sit dolor</p>
-                <a
-                    className="bg-koi hover:bg-koiHover dark:bg-matcha dark:hover:bg-matchaHover m-2 max-w-1/2 rounded-full p-2"
-                    href="/portfolio"
-                >
-                    My projects
-                </a>
+            <div className="container mb-3 flex h-[80vh] flex-col items-center justify-center">
+                <div className="container flex w-full flex-col items-center justify-center pb-30">
+                    <p className="text-textBody text-lg">
+                        <span className="text-matcha text-lg">Hi, </span>I'm
+                    </p>
+                    <h1 className="text-textHeading-light dark:text-textHeading mb-5 text-6xl">
+                        Zion Emond
+                    </h1>
+                    <h2 className="text-textBody-light dark:text-textBody mb-8 text-3xl">
+                        I write code and eat snacks.
+                    </h2>
+                    <p className="text-textBody-light dark:text-textBody mb-3 text-lg">
+                        I’m a software engineer building things with TypeScript, React, and Node.js
+                        (among other things). I focus on making web apps that are fast, functional,
+                        and easy to use — both for the people running them and the people using
+                        them.
+                    </p>
+                    <a
+                        className="bg-koi hover:bg-background-light dark:bg-sky dark:hover:bg-background dark:hover:text-sky text-textBody-light dark:text-surface border-koi dark:border-sky m-2 max-w-1/2 rounded-full border-2 px-3 py-2 transition"
+                        href="/portfolio"
+                    >
+                        My projects
+                    </a>
+                </div>
                 <Image
                     src="/static/images/logo.png"
                     alt="koi fish logo"
@@ -28,16 +41,16 @@ export default function Home({ posts }) {
                     width={200}
                 />
             </div>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+            <div className="divide-surface-light dark:divide-surface divide-y">
                 <div className="space-y-2 pt-6 pb-8 md:space-y-5">
                     <h2 className="text-textHeading-light-light dark:text-textHeading text-2xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                         Latest
                     </h2>
-                    <p className="dark:text-textBody text-lg leading-7 text-gray-500">
+                    <p className="dark:text-textBody text-textBody-light text-lg leading-7">
                         {siteMetadata.description}
                     </p>
                 </div>
-                <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+                <ul className="divide-surface-light dark:divide-surface divide-y">
                     {!posts.length && 'No posts found.'}
                     {posts.slice(0, MAX_DISPLAY).map((post) => {
                         const { slug, date, title, summary, tags } = post;

@@ -2,7 +2,7 @@
 const siteMetadata = {
     title: 'Zion Emond | Professional Software Engineer',
     author: 'Zion Emond',
-    headerTitle: "Zion Emond's Blog",
+    headerTitle: 'Zion Emond | Software Engineer',
     description: 'The portfolio and devlog of Zion Emond, a software engineer.',
     language: 'en-us',
     theme: 'dark', // system, dark or light
