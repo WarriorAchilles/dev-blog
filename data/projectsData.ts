@@ -6,22 +6,18 @@ interface Project {
 }
 
 const projectsData: Project[] = [
-    // {
-    //     title: 'A Search Engine',
-    //     description: `What if you could look up any information in the world? Webpages, images, videos
-    // and more. Google has many features to help you find exactly what you're looking
-    // for.`,
-    //     imgSrc: '/static/images/google.png',
-    //     href: 'https://www.google.com',
-    // },
-    // {
-    //     title: 'The Time Machine',
-    //     description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    // to the desired date and press "Go". No more worrying about lost keys or
-    // forgotten headphones with this simple yet affordable solution.`,
-    //     imgSrc: '/static/images/time-machine.jpg',
-    //     href: '/blog/the-time-machine',
-    // },
+    {
+        title: 'CQL',
+        description: `My current day job. CQL is a custom ecommerce development agency that specializes in building high-quality, scalable, and secure ecommerce solutions. In my day to day role, I work with a team of talented developers with technologies such as Reach, Node.js, TypeScript, ASP.NET, and more. I use platforms such as AWS, Azure, Shopify Plus, BigCommerce, and Salesforce Commerce Cloud, to build solutions that are the best fit for our clients.`,
+        imgSrc: '/static/images/CQL-Logo.png',
+        href: '/blog/CQL', // probably should make a blog post about this and then link the blog post here, then link to the site inside the blog post.
+    },
+    {
+        title: 'MERC',
+        description: `A website for Medical Equipment Resource Consultants, a company that specializes in helping hospitals and healthcare facilities maximize the value of their medical equipment. Made with WordPress.`,
+        imgSrc: '/static/images/MERC-homepage.png',
+        href: '/blog/merc', // probably should make a blog post about this and then link the blog post here, then link to the site inside the blog post.
+    },
     {
         title: 'NanoHabits',
         description: `More info coming soon`,

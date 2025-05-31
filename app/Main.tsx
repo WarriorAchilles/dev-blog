@@ -12,7 +12,7 @@ export default function Home({ posts }) {
             <div className="container mb-3 flex h-[80vh] flex-col items-center justify-center">
                 <div className="container flex w-full flex-col items-center justify-center pb-30">
                     <p className="text-textBody text-lg">
-                        <span className="text-matcha text-lg">Hi, </span>I'm
+                        <span className="dark:text-matcha text-koi text-lg">Hi, </span>I'm
                     </p>
                     <h1 className="text-textHeading-light dark:text-textHeading mb-5 text-6xl">
                         Zion Emond
@@ -36,7 +36,7 @@ export default function Home({ posts }) {
                 <Image
                     src="/static/images/logo.png"
                     alt="koi fish logo"
-                    className="absolute right-100 bottom-25 h-auto w-64 opacity-20"
+                    className="absolute right-[10%] bottom-[10%] h-auto w-64 opacity-20"
                     height={200}
                     width={200}
                 />
