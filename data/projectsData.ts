@@ -15,7 +15,7 @@ const projectsData: Project[] = [
     {
         title: 'MERC',
         description: `A website for Medical Equipment Resource Consultants, a company that specializes in helping hospitals and healthcare facilities maximize the value of their medical equipment. Made with WordPress.`,
-        imgSrc: '/static/images/MERC-homepage.png',
+        imgSrc: '/static/images/MERC-Homepage.png',
         href: '/blog/merc', // probably should make a blog post about this and then link the blog post here, then link to the site inside the blog post.
     },
     {
