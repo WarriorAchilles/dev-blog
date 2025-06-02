@@ -15,7 +15,7 @@ export async function GET(reruest: Request) {
                 {
                     role: 'user',
                     content:
-                        'Write a single 6-8 word, first-person, funny portfolio headline. Casual, dev-core tone. No buzzwords. Mention snacks or matcha occasionally. No clean code, legacy code, or coffee.',
+                        'Write a single 6-8 word, first-person, funny portfolio headline. Casual, dev-core tone. No buzzwords. Mention snacks or matcha occasionally. No clean code, legacy code, ninja, or wizard.',
                 },
             ],
             max_tokens: 40,
