@@ -18,12 +18,12 @@ const projectsData: Project[] = [
         imgSrc: '/static/images/MERC-homepage.png',
         href: '/blog/merc', // probably should make a blog post about this and then link the blog post here, then link to the site inside the blog post.
     },
-    {
-        title: 'NanoHabits',
-        description: `More info coming soon`,
-        imgSrc: '/static/images/time-machine.jpg',
-        href: '#',
-    },
+    // {
+    //     title: 'NanoHabits',
+    //     description: `More info coming soon`,
+    //     imgSrc: '/static/images/time-machine.jpg',
+    //     href: '#',
+    // },
 ];
 
 export default projectsData;
