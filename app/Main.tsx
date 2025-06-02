@@ -1,5 +1,6 @@
 import Link from '@/components/Link';
 import Tag from '@/components/Tag';
+import TaglineGenerator from '@/components/TaglineGenerator';
 import siteMetadata from '@/data/siteMetadata';
 import Image from 'next/image';
 import { formatDate } from 'pliny/utils/formatDate';
@@ -32,6 +33,7 @@ export default function Home({ posts }) {
                     >
                         My projects
                     </a>
+                    <TaglineGenerator />
                 </div>
                 <Image
                     src="/static/images/logo.png"
