@@ -6,7 +6,7 @@ const siteMetadata = {
     description: 'The portfolio and devlog of Zion Emond, a software engineer.',
     language: 'en-us',
     theme: 'dark', // system, dark or light
-    siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+    siteUrl: 'https://zionemond.dev',
     siteRepo: 'https://github.com/WarriorAchilles/dev-blog',
     siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
     socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
