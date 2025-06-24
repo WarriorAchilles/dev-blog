@@ -20,8 +20,8 @@ const projectsData: Project[] = [
     },
     {
         title: 'NanoHabits',
-        description: `More info coming soon`,
-        imgSrc: '/static/images/time-machine.jpg',
+        description: `An AI-powered habit tracking app designed to help users accomplish their goals and become better versions of themselves`,
+        imgSrc: '/static/images/NanoHabits-Logo.png',
         href: '/blog/nanohabits',
     },
     {
