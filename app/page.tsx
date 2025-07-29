@@ -11,7 +11,7 @@ export default async function Page() {
             <div
                 style={{
                     width: '100%',
-                    height: '80vh',
+                    height: '100%',
                     position: 'absolute',
                     left: 0,
                     top: 0,
