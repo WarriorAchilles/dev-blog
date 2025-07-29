@@ -73,7 +73,7 @@ export default function Homepage({ posts }) {
                     <p className="text-textBody-light dark:text-textBody mb-3 text-lg">
                         I'm a software engineer building things with TypeScript, React, and Node.js
                         (among other things). I focus on making web apps that are fast, functional,
-                        and easy to use — both for the people running them and the people using
+                        and easy to use - both for the people running them and the people using
                         them.
                     </p>
                     <a
@@ -89,7 +89,9 @@ export default function Homepage({ posts }) {
                         generate it.
                         <br />
                         That being said, if you want to ask ChatGPT to generate a new tagline, click
-                        the button
+                        the button.
+                        <br />
+                        (Everything the AI tagline says about me may or may not be true.)
                     </p>
                     <button
                         className="bg-koi dark:bg-sky dark:hover:text-sky dark:focus:text-sky text-textBody-light dark:text-surface border-koi dark:border-sky flex w-[200px] items-center justify-evenly rounded-full border-2 px-3 py-2 text-wrap transition hover:bg-transparent focus:bg-transparent sm:text-nowrap"
