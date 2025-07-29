@@ -6,7 +6,7 @@ import siteMetadata from '@/data/siteMetadata';
 import Image from 'next/image';
 import { formatDate } from 'pliny/utils/formatDate';
 import { useState, useEffect } from 'react';
-import { TypewriterText } from './TypewriterText';
+import TextType from './TextType';
 
 const MAX_DISPLAY = 5;
 
@@ -62,7 +62,13 @@ export default function Homepage({ posts }) {
                             </svg>
                         </div>
                     ) : (
-                        <TypewriterText text={`${tagline}`} />
+                        <TextType
+                            className="text-textBody-light dark:text-textBody mb-8 max-w-fit text-sm md:text-3xl"
+                            text={tagline}
+                            typingSpeed={75}
+                            pauseDuration={5000}
+                            variableSpeed={{ min: 60, max: 120 }}
+                        />
                     )}
                     <p className="text-textBody-light dark:text-textBody mb-3 text-lg">
                         I'm a software engineer building things with TypeScript, React, and Node.js
