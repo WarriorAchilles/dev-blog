@@ -8,14 +8,16 @@ export default async function Page() {
     const posts = allCoreContent(sortedPosts);
     return (
         <>
+            {/* Fixed background beams that stay in place */}
             <div
                 style={{
-                    width: '100%',
-                    height: '100%',
-                    position: 'absolute',
+                    width: '100vw',
+                    height: '100vh',
+                    position: 'fixed',
                     left: 0,
                     top: 0,
-                    zIndex: -999,
+                    zIndex: -1,
+                    pointerEvents: 'none',
                 }}
             >
                 <Beams
@@ -29,7 +31,10 @@ export default async function Page() {
                     lightColor="#90a955"
                 />
             </div>
-            <Main posts={posts} />
+            {/* Scrollable content layer */}
+            <div style={{ position: 'relative', zIndex: 1 }}>
+                <Main posts={posts} />
+            </div>
         </>
     );
 }
