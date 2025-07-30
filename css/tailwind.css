@@ -279,4 +279,8 @@ input:-webkit-autofill:focus {
         position: relative;
         z-index: 6;
     }
+
+    .sticky {
+        position: sticky !important;
+    }
 }

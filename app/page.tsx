@@ -20,11 +20,11 @@ export default async function Page() {
             >
                 <Beams
                     beamHeight={30}
-                    beamWidth={0.5}
+                    beamWidth={0.8}
                     beamNumber={26}
-                    speed={2}
+                    speed={1}
                     noiseIntensity={2}
-                    scale={0.2}
+                    scale={0.25}
                     rotation={228}
                     lightColor="#90a955"
                 />
