@@ -44,11 +44,11 @@ export default function Homepage({ posts }) {
                         Zion Emond
                     </h1>
                     {loading ? (
-                        <div className="text-textBody-light dark:text-textBody mb-8 flex max-w-fit flex-row justify-evenly text-sm md:text-3xl">
+                        <div className="text-textBody-light dark:text-textBody mb-8 flex max-w-fit flex-row items-center justify-evenly gap-3 text-sm md:text-3xl">
                             Generating tagline...
                             <svg
                                 aria-hidden="true"
-                                className="fill-textBody text-background-light dark:text-background h-6 w-6 animate-spin"
+                                className="fill-textBody text-surface h-6 w-6 animate-spin"
                                 viewBox="0 0 100 101"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +114,7 @@ export default function Homepage({ posts }) {
                                 background="transparent"
                                 borderRadius="calc(infinity * 1px)"
                                 borderColor="transparent"
-                                className="px-7 py-3"
+                                className="flex gap-3 px-7 py-3 text-nowrap"
                             >
                                 {loading ? (
                                     <>
