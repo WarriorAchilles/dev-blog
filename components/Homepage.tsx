@@ -151,25 +151,27 @@ export default function Homepage({ posts }) {
                         may not be true.)
                     </p>
                 </div>
-                {/* <Image
-                    src="/static/images/logo.png"
-                    alt="koi fish logo"
-                    className="absolute right-[10%] bottom-[10%] -z-1 h-auto w-64 opacity-20"
-                    height={200}
-                    width={200}
-                /> */}
             </div>
-            <div className="container my-50 h-screen">
+            <div className="container my-30">
                 <ScrollReveal
                     enableBlur={true}
                     baseOpacity={0.1}
                     baseRotation={3}
-                    textClassName="text-textBody text-lg"
+                    textClassName="text-textBody text-1xl sm:text-2xl md:text-4xl text-center"
+                    wordAnimationEnd="bottom bottom"
                 >
                     I'm a software engineer building things with TypeScript, React, and Node.js
-                    (among other things). I focus on making web apps that are fast, functional, and
-                    easy to use - both for the people running them and the people using them.
+                    (among other things). I focus on making software from top to bottom that is
+                    fast, functional, and easy to use - both for the people running it and the
+                    people using it.
                 </ScrollReveal>
+                <Image
+                    src="/static/images/logo.png"
+                    alt="koi fish logo"
+                    className="absolute top-[85vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-0 md:w-64"
+                    height={200}
+                    width={200}
+                />
             </div>
             <div className="divide-surface-light dark:divide-surface container divide-y">
                 <div className="space-y-2 pt-6 pb-8 md:space-y-5">
