@@ -8,6 +8,7 @@ import { formatDate } from 'pliny/utils/formatDate';
 import { useState, useEffect } from 'react';
 import TextType from './TextType';
 import GlareHover from './GlareHover';
+import ScrollReveal from './ScrollReveal';
 
 const MAX_DISPLAY = 5;
 
@@ -34,8 +35,8 @@ export default function Homepage({ posts }) {
 
     return (
         <>
-            <div className="container mb-3 flex h-[80vh] flex-col items-center justify-center">
-                <div className="container flex w-full flex-col items-center justify-center pb-30">
+            <div className="container mt-[100px] mb-3 flex h-[80vh] flex-col items-center justify-center sm:mt-0">
+                <div className="container flex w-full flex-col items-center justify-center md:mt-45">
                     <p className="text-textBody text-lg">
                         <span className="dark:text-matcha text-koi text-lg">Hi, </span>I'm
                     </p>
@@ -66,9 +67,9 @@ export default function Homepage({ posts }) {
                         <TextType
                             className="text-textBody-light dark:text-textBody mb-8 max-w-fit text-sm md:text-3xl"
                             text={tagline}
-                            typingSpeed={75}
+                            typingSpeed={45}
                             pauseDuration={5000}
-                            variableSpeed={{ min: 60, max: 120 }}
+                            variableSpeed={{ min: 40, max: 90 }}
                         />
                     )}
                     <div
@@ -141,23 +142,13 @@ export default function Homepage({ posts }) {
                             </GlareHover>
                         </button>
                     </div>
-
-                    <p className="text-textBody-light dark:text-textBody mb-3 text-lg">
-                        I'm a software engineer building things with TypeScript, React, and Node.js
-                        (among other things). I focus on making web apps that are fast, functional,
-                        and easy to use - both for the people running them and the people using
-                        them.
-                    </p>
                 </div>
-                <div className="container flex flex-col items-center md:flex-row">
-                    <p className="text-textBody-light dark:text-textBody mb-5 text-sm md:mr-6 md:mb-0 md:w-3/4 lg:mr-0">
+                <div className="container mt-20 md:mt-45">
+                    <p className="dark:text-textBody text-sm md:max-w-1/2">
                         *I totally wrote this tagline myself and totally didn't ask ChatGPT to
-                        generate it.
-                        <br />
-                        That being said, if you want to ask ChatGPT to generate a new tagline, click
-                        the button.
-                        <br />
-                        (Everything the AI tagline says about me may or may not be true.)
+                        generate it. That being said, if you want to ask ChatGPT to generate a new
+                        tagline, click the button. (Everything the AI tagline says about me may or
+                        may not be true.)
                     </p>
                 </div>
                 {/* <Image
@@ -168,7 +159,19 @@ export default function Homepage({ posts }) {
                     width={200}
                 /> */}
             </div>
-            <div className="divide-surface-light dark:divide-surface divide-y">
+            <div className="container my-50 h-screen">
+                <ScrollReveal
+                    enableBlur={true}
+                    baseOpacity={0.1}
+                    baseRotation={3}
+                    textClassName="text-textBody text-lg"
+                >
+                    I'm a software engineer building things with TypeScript, React, and Node.js
+                    (among other things). I focus on making web apps that are fast, functional, and
+                    easy to use - both for the people running them and the people using them.
+                </ScrollReveal>
+            </div>
+            <div className="divide-surface-light dark:divide-surface container divide-y">
                 <div className="space-y-2 pt-6 pb-8 md:space-y-5">
                     <h2 className="text-textHeading-light-light dark:text-textHeading text-2xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                         Latest
