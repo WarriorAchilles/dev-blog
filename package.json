@@ -14,6 +14,8 @@
     "dependencies": {
         "@headlessui/react": "2.2.0",
         "@next/bundle-analyzer": "15.2.4",
+        "@react-three/drei": "^10.6.1",
+        "@react-three/fiber": "^9.3.0",
         "@tailwindcss/forms": "^0.5.9",
         "@tailwindcss/postcss": "^4.0.5",
         "@tailwindcss/typography": "^0.5.15",
@@ -22,11 +24,13 @@
         "esbuild": "0.25.2",
         "github-slugger": "^2.0.0",
         "gray-matter": "^4.0.2",
+        "gsap": "^3.13.0",
         "hast-util-from-html-isomorphic": "^2.0.0",
         "image-size": "2.0.1",
         "next": "15.2.4",
         "next-contentlayer2": "0.5.5",
         "next-themes": "^0.4.6",
+        "ogl": "^1.0.11",
         "openai": "^5.0.1",
         "pliny": "0.4.1",
         "postcss": "^8.4.24",
@@ -45,6 +49,7 @@
         "remark-github-blockquote-alert": "^1.2.1",
         "remark-math": "^6.0.0",
         "tailwindcss": "^4.0.5",
+        "three": "^0.178.0",
         "unist-util-visit": "^5.0.0"
     },
     "devDependencies": {
