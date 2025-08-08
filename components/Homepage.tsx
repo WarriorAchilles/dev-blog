@@ -167,10 +167,11 @@ export default function Homepage({ posts }) {
                 </ScrollReveal>
                 <Image
                     src="/static/images/logo.png"
-                    alt="koi fish logo"
+                    alt=""
                     className="absolute top-[85vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-0 md:w-64"
                     height={200}
                     width={200}
+                    aria-hidden="true"
                 />
             </div>
             <div className="divide-surface-light dark:divide-surface container divide-y">
