@@ -1,6 +1,7 @@
 'use client';
 
 import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo, FC, ReactNode } from 'react';
+import usePrefersReducedMotion from '@/app/hooks/usePrefersReducedMotion';
 
 import * as THREE from 'three';
 
@@ -190,6 +191,7 @@ const Beams: FC<BeamsProps> = ({
     rotation = 0,
 }) => {
     const meshRef = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>(null!);
+    const prefersReducedMotion = usePrefersReducedMotion();
 
     const beamMaterial = useMemo(
         () =>
@@ -257,6 +259,7 @@ const Beams: FC<BeamsProps> = ({
                     count={beamNumber}
                     width={beamWidth}
                     height={beamHeight}
+                    prefersReducedMotion={prefersReducedMotion}
                 />
                 <DirLight color={lightColor} position={[0, 3, 10]} />
             </group>
@@ -328,8 +331,9 @@ const MergedPlanes = forwardRef<
         width: number;
         count: number;
         height: number;
+        prefersReducedMotion: boolean;
     }
->(({ material, width, count, height }, ref) => {
+>(({ material, width, count, height, prefersReducedMotion }, ref) => {
     const mesh = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>(null!);
     useImperativeHandle(ref, () => mesh.current);
     const geometry = useMemo(
@@ -337,7 +341,9 @@ const MergedPlanes = forwardRef<
         [count, width, height]
     );
     useFrame((_, delta) => {
-        mesh.current.material.uniforms.time.value += 0.1 * delta;
+        if (!prefersReducedMotion) {
+            mesh.current.material.uniforms.time.value += 0.1 * delta;
+        }
     });
     return <mesh ref={mesh} geometry={geometry} material={material} />;
 });
@@ -350,6 +356,7 @@ const PlaneNoise = forwardRef<
         width: number;
         count: number;
         height: number;
+        prefersReducedMotion: boolean;
     }
 >((props, ref) => (
     <MergedPlanes
@@ -358,6 +365,7 @@ const PlaneNoise = forwardRef<
         width={props.width}
         count={props.count}
         height={props.height}
+        prefersReducedMotion={props.prefersReducedMotion}
     />
 ));
 PlaneNoise.displayName = 'PlaneNoise';

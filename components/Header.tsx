@@ -30,7 +30,10 @@ const Header = () => {
                 </div>
             </Link>
             <div className="flex items-center space-x-4 leading-5 md:-mr-6 md:space-x-6">
-                <div className="hidden items-center gap-x-4 overflow-x-auto md:flex md:max-w-72 lg:max-w-96">
+                <nav
+                    className="hidden items-center gap-x-4 overflow-x-auto md:flex md:max-w-72 lg:max-w-96"
+                    aria-label="Main navigation"
+                >
                     {headerNavLinks
                         .filter((link) => link.href !== '/')
                         .map((link) => (
@@ -42,7 +45,7 @@ const Header = () => {
                                 {link.title}
                             </Link>
                         ))}
-                </div>
+                </nav>
                 <SearchButton />
                 <MobileNav />
             </div>
