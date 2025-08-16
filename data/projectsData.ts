@@ -13,6 +13,12 @@ const projectsData: Project[] = [
         href: '/blog/CQL',
     },
     {
+        title: 'Shopify Metadata Migrator',
+        description: `A CLI tool for copying Shopify Metafield and Metaobject definitions from one Shopify store to another.`,
+        imgSrc: '/static/images/shopify-metadata-migrator.png',
+        href: '/blog/shopify-metadata-migrator',
+    },
+    {
         title: 'MERC',
         description: `A website for Medical Equipment Resource Consultants, a company that specializes in helping hospitals and healthcare facilities maximize the value of their medical equipment. Made with WordPress.`,
         imgSrc: '/static/images/MERC-Homepage.png',
