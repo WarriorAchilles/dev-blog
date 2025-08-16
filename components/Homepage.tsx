@@ -79,6 +79,7 @@ export default function Homepage({ posts }) {
                         <a
                             className="text-textHeading glass3d rounded-full text-nowrap"
                             href="/portfolio"
+                            aria-label="my projects"
                         >
                             <GlareHover
                                 glareColor="#ffffff"
@@ -101,6 +102,7 @@ export default function Homepage({ posts }) {
                             className="text-textHeading glass3d flex rounded-full text-nowrap"
                             onClick={fetchTagline}
                             disabled={loading}
+                            aria-label={loading ? 'Generating...' : 'Generate new tagline'}
                         >
                             <GlareHover
                                 glareColor="#ffffff"
