@@ -19,6 +19,12 @@ const projectsData: Project[] = [
         href: '/blog/shopify-metadata-migrator',
     },
     {
+        title: 'Kentucky Farm Bureau Internship',
+        description: `A 6-week internship that helped me get my feet wet in corporate software engineering.`,
+        imgSrc: '/static/images/kfb.jpg',
+        href: '/blog/kfb',
+    },
+    {
         title: 'MERC',
         description: `A website for Medical Equipment Resource Consultants, a company that specializes in helping hospitals and healthcare facilities maximize the value of their medical equipment. Made with WordPress.`,
         imgSrc: '/static/images/MERC-Homepage.png',
