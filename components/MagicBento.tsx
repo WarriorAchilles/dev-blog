@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 
@@ -8,6 +10,7 @@ export interface BentoCardProps {
     label?: string;
     textAutoHide?: boolean;
     disableAnimations?: boolean;
+    link?: string;
 }
 
 export interface BentoProps {
@@ -35,6 +38,7 @@ const cardData: BentoCardProps[] = [
         title: 'Analytics',
         description: 'Track user behavior',
         label: 'Insights',
+        link: '/blog',
     },
     {
         color: '#060010',
@@ -735,7 +739,9 @@ const MagicBento: React.FC<BentoProps> = ({
                                     enableMagnetism={enableMagnetism}
                                 >
                                     <div className="card__header relative flex justify-between gap-3 text-white">
-                                        <span className="card__label text-base">{card.label}</span>
+                                        <a href={card.link} className="card__label text-base">
+                                            {card.label}
+                                        </a>
                                     </div>
                                     <div className="card__content relative flex flex-col text-white">
                                         <h3
