@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-    title: 'Zion Emond | Professional Software Engineer',
+    title: 'Zion Emond | Full Stack Software Engineer',
     author: 'Zion Emond',
     headerTitle: 'Zion Emond | Software Engineer',
-    description: 'The portfolio and devlog of Zion Emond, a software engineer.',
+    description: 'The portfolio and devlog of Zion Emond, a full stack software engineer.',
     language: 'en-us',
     theme: 'dark', // system, dark or light
     siteUrl: 'https://zionemond.dev',
