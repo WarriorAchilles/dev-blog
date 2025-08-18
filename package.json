@@ -80,5 +80,17 @@
             "prettier --write"
         ]
     },
-    "packageManager": "yarn@3.6.1"
+    "packageManager": "yarn@3.6.1",
+    "overrides": {
+        "react": "$react",
+        "react-dom": "$react-dom",
+        "next-themes": {
+            "react": "$react",
+            "react-dom": "$react-dom"
+        },
+        "kbar": {
+            "react": "$react",
+            "react-dom": "$react-dom"
+        }
+    }
 }
