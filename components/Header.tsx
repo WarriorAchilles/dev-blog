@@ -7,7 +7,7 @@ import SearchButton from './SearchButton';
 
 const Header = () => {
     let headerClass =
-        'flex items-center w-[80%] bg-transparent justify-between py-2 px-10 sm:mt-15 ml-auto mr-auto border rounded-full glass3d';
+        'flex items-center w-[80%] bg-transparent justify-between py-2 px-10 sm:mt-15 ml-auto mr-auto rounded-full glass3d';
     if (siteMetadata.stickyNav) {
         headerClass += ' sticky top-10 md:top-15 z-50';
     }

@@ -225,7 +225,7 @@ input:-webkit-autofill:focus {
     }
 
     .glass3d {
-        --filter-glass3d: blur(5px) brightness(0.8) saturate(1.9);
+        --filter-glass3d: blur(10px) brightness(0.8) saturate(1.9);
         --color-glass3d: hsl(169 12% 10% / 0.2);
         --noise-glass3d: url('https://www.transparenttextures.com/patterns/fabric-1-light.png');
 
