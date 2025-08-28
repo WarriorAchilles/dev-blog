@@ -9,10 +9,13 @@ import { useState, useEffect } from 'react';
 import TextType from './TextType';
 import GlareHover from './GlareHover';
 import ScrollReveal from './ScrollReveal';
+import SocialIcon from '@/components/social-icons';
 
 const MAX_DISPLAY = 5;
 
-export default function Homepage({ posts }) {
+export default function Homepage({ posts, content }) {
+    const { name, avatar, occupation, company, email, twitter, bluesky, linkedin, github } =
+        content;
     const [tagline, setTagline] = useState('');
     const [loading, setLoading] = useState(true);
 
@@ -154,23 +157,44 @@ export default function Homepage({ posts }) {
                     </p>
                 </div>
             </div>
-            <div className="container my-30">
-                <ScrollReveal
-                    enableBlur={true}
-                    baseOpacity={0.1}
-                    baseRotation={3}
-                    textClassName="text-textBody text-1xl sm:text-2xl md:text-4xl text-center"
-                    wordAnimationEnd="bottom bottom"
-                >
-                    I'm a software engineer building things with TypeScript, React, and Node.js
-                    (among other things). I focus on making software from top to bottom that is
-                    fast, functional, and easy to use - both for the people running it and the
-                    people using it.
-                </ScrollReveal>
+            <div className="container my-30 flex flex-col xl:flex-row">
+                <div className="mb-20 flex justify-center xl:mb-0 xl:w-1/2 xl:max-w-1/2">
+                    <div className="glass3d flex w-[350px] flex-col items-center rounded-4xl py-10">
+                        {avatar && (
+                            <Image
+                                src={avatar}
+                                alt="avatar"
+                                width={192}
+                                height={192}
+                                className="h-48 w-48 rounded-full"
+                            />
+                        )}
+                        <h3 className="pt-4 pb-2 text-2xl leading-8 font-bold tracking-tight">
+                            {name}
+                        </h3>
+                        <div className="dark:text-textBody text-gray-500">{occupation}</div>
+                        <div className="dark:text-textBody text-gray-500">{company}</div>
+                        <div className="flex space-x-3 pt-6">
+                            <SocialIcon kind="mail" href={`mailto:${email}`} />
+                            <SocialIcon kind="github" href={github} />
+                            <SocialIcon kind="linkedin" href={linkedin} />
+                            <SocialIcon kind="x" href={twitter} />
+                            <SocialIcon kind="bluesky" href={bluesky} />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex items-center xl:w-1/2">
+                    <p className="text-textBody text-1xl text-center sm:text-2xl">
+                        I'm a software engineer building things with TypeScript, React, and Node.js
+                        (among other things). I focus on making software from top to bottom that is
+                        fast, functional, and easy to use - both for the people running it and the
+                        people using it.
+                    </p>
+                </div>
                 <Image
                     src="/static/images/logo.png"
                     alt=""
-                    className="absolute top-[85vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-0 md:w-64"
+                    className="absolute top-[95vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-[-5%] md:w-64"
                     height={200}
                     width={200}
                     aria-hidden="true"

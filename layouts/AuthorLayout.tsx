@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import type { Authors } from 'contentlayer/generated';
 import SocialIcon from '@/components/social-icons';
 import Image from '@/components/Image';
+import ProfileCard from '@/components/ProfileCard';
 
 interface Props {
     children: ReactNode;
@@ -37,13 +38,27 @@ export default function AuthorLayout({ children, content }: Props) {
                         <div className="dark:text-textBody text-gray-500">{occupation}</div>
                         <div className="dark:text-textBody text-gray-500">{company}</div>
                         <div className="flex space-x-3 pt-6">
-                            {/* <SocialIcon kind="mail" href={`mailto:${email}`} /> */}
+                            <SocialIcon kind="mail" href={`mailto:${email}`} />
                             <SocialIcon kind="github" href={github} />
                             <SocialIcon kind="linkedin" href={linkedin} />
                             <SocialIcon kind="x" href={twitter} />
                             <SocialIcon kind="bluesky" href={bluesky} />
                         </div>
                     </div>
+                    {/* <div className="flex flex-col items-center space-x-2 pt-8">
+                        <ProfileCard
+                            name="Zion Emond"
+                            title="Software Engineer"
+                            contactText="Contact Me"
+                            handle="warriorachilles"
+                            avatarImageName="transparent-profile-pic.png"
+                            miniAvatarImageName="profile_pic.png"
+                            showUserInfo={true}
+                            enableTilt={false}
+                            enableMobileTilt={false}
+                            showBehindGradient={false}
+                        />
+                    </div> */}
                     <div className="prose dark:prose-invert text-textBody-light dark:text-textBody max-w-none pt-8 pb-8 xl:col-span-2">
                         {children}
                     </div>
