@@ -23,8 +23,9 @@ export async function GET(request: NextRequest) {
         ];
         // default to chatGPT
         if (!model || model === 'chatGPT') {
+            console.log('generating chatGPT tagline...');
             const chatResponse = await openai.chat.completions.create({
-                model: 'gpt-40-mini',
+                model: 'gpt-4o-mini',
                 messages: messages,
                 max_tokens: 45,
             });
@@ -32,6 +33,7 @@ export async function GET(request: NextRequest) {
         }
 
         if (model === 'grok') {
+            console.log('generating grok tagline...');
             const grokResponse = await fetch('https://api.x.ai/v1/chat/completions', {
                 method: 'POST',
                 headers: {

@@ -5,10 +5,9 @@ import Tag from '@/components/Tag';
 import siteMetadata from '@/data/siteMetadata';
 import Image from 'next/image';
 import { formatDate } from 'pliny/utils/formatDate';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import TextType from './TextType';
 import GlareHover from './GlareHover';
-import ScrollReveal from './ScrollReveal';
 import SocialIcon from '@/components/social-icons';
 
 const MAX_DISPLAY = 5;
@@ -17,24 +16,26 @@ export default function Homepage({ posts, content }) {
     const { name, avatar, occupation, company, email, twitter, bluesky, linkedin, github } =
         content;
     const [tagline, setTagline] = useState('');
+    const [aiModel, setAiModel] = useState('chatGPT');
     const [loading, setLoading] = useState(true);
 
-    const fetchTagline = async () => {
+    const fetchTagline = useCallback(async () => {
         setLoading(true);
         if (process.env.NEXT_PUBLIC_IS_DEV === 'true') {
+            console.log('ai model is', aiModel);
             setTagline('dev mode tagline*');
         } else {
-            const res = await fetch('/api/generateTagline');
+            const res = await fetch(`/api/generateTagline?model=${aiModel}`);
             const data = await res.json();
             setTagline(data.tagline + '*');
         }
 
         setLoading(false);
-    };
+    }, [aiModel]);
 
     useEffect(() => {
         fetchTagline();
-    }, []);
+    }, [fetchTagline]);
 
     return (
         <>
@@ -147,9 +148,23 @@ export default function Homepage({ posts, content }) {
                             </GlareHover>
                         </button>
                     </div>
+                    <div className="mt-5 flex flex-row items-center justify-center">
+                        <label htmlFor="ai-selector" className="text-textBody mr-5">
+                            Select which AI generates my tagline:
+                        </label>
+                        <select
+                            id="ai-selector"
+                            name="ai-selector"
+                            onChange={(e) => setAiModel(e.target.value)}
+                            className="text-textHeading bg-surface border-surface rounded-full text-nowrap"
+                        >
+                            <option value="chatGPT">ChatGPT</option>
+                            <option value="grok">Grok</option>
+                        </select>
+                    </div>
                 </div>
                 <div className="container mt-20 md:mt-45">
-                    <p className="dark:text-textBody text-sm md:max-w-1/2">
+                    <p className="text-textBody text-sm md:max-w-1/2">
                         *I totally wrote this tagline myself and totally didn't ask ChatGPT to
                         generate it. That being said, if you want to ask ChatGPT to generate a new
                         tagline, click the button. (Everything the AI tagline says about me may or
