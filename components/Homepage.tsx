@@ -39,7 +39,7 @@ export default function Homepage({ posts, content }) {
 
     return (
         <>
-            <div className="container mt-[100px] mb-3 flex h-[80vh] flex-col items-center justify-center sm:mt-0">
+            <div className="container mt-[100px] mb-3 flex min-h-[80vh] flex-col items-center justify-center sm:mt-0">
                 <div className="container flex w-full flex-col items-center justify-center md:mt-45">
                     <p className="text-textBody text-lg">
                         <span className="dark:text-matcha text-koi text-lg">Hi, </span>I'm
@@ -163,7 +163,7 @@ export default function Homepage({ posts, content }) {
                         </select>
                     </div>
                 </div>
-                <div className="container mt-20 md:mt-45">
+                <div className="container mt-20 flex justify-end md:mt-45">
                     <p className="text-textBody text-sm md:max-w-1/2">
                         *I totally wrote this tagline myself and totally didn't ask ChatGPT to
                         generate it. That being said, if you want to ask ChatGPT to generate a new
@@ -209,7 +209,7 @@ export default function Homepage({ posts, content }) {
                 <Image
                     src="/static/images/logo.png"
                     alt=""
-                    className="absolute top-[95vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-[-5%] md:w-64"
+                    className="absolute top-[160vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-[-5%] lg:top-[125vh] lg:w-64"
                     height={200}
                     width={200}
                     aria-hidden="true"
