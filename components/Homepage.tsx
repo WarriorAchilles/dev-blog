@@ -9,8 +9,15 @@ import { useState, useEffect, useCallback } from 'react';
 import TextType from './TextType';
 import GlareHover from './GlareHover';
 import SocialIcon from '@/components/social-icons';
+import CustomSelect from '@/components/CustomSelect';
 
 const MAX_DISPLAY = 5;
+
+const options = [
+    { value: 'chatGPT', label: 'ChatGPT' },
+    { value: 'grok', label: 'Grok' },
+    { value: 'claude', label: 'Claude' },
+];
 
 export default function Homepage({ posts, content }) {
     const { name, avatar, occupation, company, email, twitter, bluesky, linkedin, github } =
@@ -148,19 +155,12 @@ export default function Homepage({ posts, content }) {
                             </GlareHover>
                         </button>
                     </div>
-                    <div className="mt-5 flex flex-row items-center justify-center">
-                        <label htmlFor="ai-selector" className="text-textBody mr-5">
-                            Select which AI generates my tagline:
-                        </label>
-                        <select
-                            id="ai-selector"
-                            name="ai-selector"
-                            onChange={(e) => setAiModel(e.target.value)}
-                            className="text-textHeading bg-surface border-surface rounded-full text-nowrap"
-                        >
-                            <option value="chatGPT">ChatGPT</option>
-                            <option value="grok">Grok</option>
-                        </select>
+                    <div className="mt-5 flex w-full flex-row items-center justify-center">
+                        <CustomSelect
+                            options={options}
+                            value={aiModel}
+                            onChange={(val) => setAiModel(val)}
+                        />
                     </div>
                 </div>
                 <div className="container mt-20 flex justify-end md:mt-45">
