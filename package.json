@@ -12,6 +12,7 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@anthropic-ai/sdk": "^0.63.0",
         "@headlessui/react": "2.2.0",
         "@material-tailwind/react": "^2.1.10",
         "@next/bundle-analyzer": "15.2.4",

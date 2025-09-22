@@ -106,7 +106,7 @@ export default function CustomSelect({ options, value, onChange }: CustomSelectP
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.15, ease: 'easeOut' }}
-                        className="glass3d absolute z-10 mt-2 w-full overflow-hidden rounded-2xl border border-gray-200 shadow-lg"
+                        className="glass3d !absolute z-10 mt-2 w-full overflow-hidden rounded-2xl border border-gray-200 shadow-lg"
                     >
                         {options.map((option, idx) => {
                             const isHighlighted = highlightedIndex === idx;

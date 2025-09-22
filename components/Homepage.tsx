@@ -155,7 +155,8 @@ export default function Homepage({ posts, content }) {
                             </GlareHover>
                         </button>
                     </div>
-                    <div className="mt-5 flex w-full flex-row items-center justify-center">
+                    <div className="mt-4 flex w-full flex-col items-center justify-center">
+                        <p className="text-textBody mb-2">Select which AI generates my tagline:</p>
                         <CustomSelect
                             options={options}
                             value={aiModel}
@@ -163,12 +164,12 @@ export default function Homepage({ posts, content }) {
                         />
                     </div>
                 </div>
-                <div className="container mt-20 flex justify-end md:mt-45">
+                <div className="container mt-20 flex justify-end md:mt-30">
                     <p className="text-textBody text-sm md:max-w-1/2">
-                        *I totally wrote this tagline myself and totally didn't ask ChatGPT to
-                        generate it. That being said, if you want to ask ChatGPT to generate a new
-                        tagline, click the button. (Everything the AI tagline says about me may or
-                        may not be true.)
+                        *I totally wrote this tagline myself and totally didn't ask AI to generate
+                        it. That being said, if you want to ask AI to generate a new tagline, click
+                        the button or select a different model. (Everything the AI tagline says
+                        about me may or may not be true.)
                     </p>
                 </div>
             </div>

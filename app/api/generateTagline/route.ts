@@ -1,15 +1,30 @@
 import { OpenAI } from 'openai';
 import { ChatCompletionMessageParam } from 'openai/resources/index.mjs';
 import { NextRequest } from 'next/server';
+import Anthropic from '@anthropic-ai/sdk';
+import { type MessageParam } from '@anthropic-ai/sdk/resources/messages';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+const anthropic = new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+// Unified message type that works with both OpenAI and Anthropic SDKs
+type UnifiedMessageRole = 'system' | 'user' | 'assistant';
+
+interface UnifiedMessage {
+    role: UnifiedMessageRole;
+    content: string;
+    name?: string;
+}
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const model = searchParams.get('model');
     try {
         let tagline: string | undefined = '';
-        const messages: ChatCompletionMessageParam[] = [
+        const messages: UnifiedMessage[] = [
             {
                 role: 'system',
                 content:
@@ -26,13 +41,11 @@ export async function GET(request: NextRequest) {
             console.log('generating chatGPT tagline...');
             const chatResponse = await openai.chat.completions.create({
                 model: 'gpt-4o-mini',
-                messages: messages,
+                messages: messages as ChatCompletionMessageParam[],
                 max_tokens: 45,
             });
             tagline = chatResponse.choices[0].message.content?.trim();
-        }
-
-        if (model === 'grok') {
+        } else if (model === 'grok') {
             console.log('generating grok tagline...');
             const grokResponse = await fetch('https://api.x.ai/v1/chat/completions', {
                 method: 'POST',
@@ -48,6 +61,22 @@ export async function GET(request: NextRequest) {
             });
             const grokJson = await grokResponse.json();
             tagline = grokJson.choices[0].message.content?.trim();
+        } else if (model === 'claude') {
+            console.log('generating claude tagline...');
+            // Extract system message for Anthropic (it goes in a separate field)
+            const systemMessage = messages[0];
+            const conversationMessages = [messages[1]];
+            const msg = await anthropic.messages.create({
+                model: 'claude-sonnet-4-20250514',
+                max_tokens: 45,
+                system: systemMessage?.content || '',
+                messages: conversationMessages as MessageParam[], // Type assertion needed for Anthropic
+            });
+            // Anthropic returns content as an array of content blocks
+            const contentBlock = msg.content[0];
+            if (contentBlock.type === 'text') {
+                tagline = contentBlock.text?.trim();
+            }
         }
 
         return new Response(JSON.stringify({ tagline }), {
