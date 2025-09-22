@@ -5,40 +5,49 @@ import Tag from '@/components/Tag';
 import siteMetadata from '@/data/siteMetadata';
 import Image from 'next/image';
 import { formatDate } from 'pliny/utils/formatDate';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import TextType from './TextType';
 import GlareHover from './GlareHover';
-import ScrollReveal from './ScrollReveal';
 import SocialIcon from '@/components/social-icons';
+import CustomSelect from '@/components/CustomSelect';
 
 const MAX_DISPLAY = 5;
+
+const options = [
+    { value: 'chatGPT', label: 'ChatGPT' },
+    { value: 'grok', label: 'Grok' },
+    { value: 'claude', label: 'Claude' },
+    { value: 'gemini', label: 'Gemini' },
+];
 
 export default function Homepage({ posts, content }) {
     const { name, avatar, occupation, company, email, twitter, bluesky, linkedin, github } =
         content;
     const [tagline, setTagline] = useState('');
+    const [aiModel, setAiModel] = useState('chatGPT');
     const [loading, setLoading] = useState(true);
 
-    const fetchTagline = async () => {
+    const fetchTagline = useCallback(async () => {
         setLoading(true);
         if (process.env.NEXT_PUBLIC_IS_DEV === 'true') {
+            console.log('ai model is', aiModel);
             setTagline('dev mode tagline*');
         } else {
-            const res = await fetch('/api/generateTagline');
+            const res = await fetch(`/api/generateTagline?model=${aiModel}`);
             const data = await res.json();
             setTagline(data.tagline + '*');
         }
 
         setLoading(false);
-    };
+    }, [aiModel]);
 
     useEffect(() => {
         fetchTagline();
-    }, []);
+    }, [fetchTagline]);
 
     return (
         <>
-            <div className="container mt-[100px] mb-3 flex h-[80vh] flex-col items-center justify-center sm:mt-0">
+            <div className="container mt-[100px] mb-3 flex min-h-[80vh] flex-col items-center justify-center sm:mt-0">
                 <div className="container flex w-full flex-col items-center justify-center md:mt-45">
                     <p className="text-textBody text-lg">
                         <span className="dark:text-matcha text-koi text-lg">Hi, </span>I'm
@@ -147,13 +156,21 @@ export default function Homepage({ posts, content }) {
                             </GlareHover>
                         </button>
                     </div>
+                    <div className="mt-4 flex w-full flex-col items-center justify-center">
+                        <p className="text-textBody mb-2">Select which AI generates my tagline:</p>
+                        <CustomSelect
+                            options={options}
+                            value={aiModel}
+                            onChange={(val) => setAiModel(val)}
+                        />
+                    </div>
                 </div>
-                <div className="container mt-20 md:mt-45">
-                    <p className="dark:text-textBody text-sm md:max-w-1/2">
-                        *I totally wrote this tagline myself and totally didn't ask ChatGPT to
-                        generate it. That being said, if you want to ask ChatGPT to generate a new
-                        tagline, click the button. (Everything the AI tagline says about me may or
-                        may not be true.)
+                <div className="container mt-20 flex justify-end md:mt-30">
+                    <p className="text-textBody text-sm md:max-w-1/2">
+                        *I totally wrote this tagline myself and totally didn't ask AI to generate
+                        it. That being said, if you want to ask AI to generate a new tagline, click
+                        the button or select a different model. (Everything the AI tagline says
+                        about me may or may not be true.)
                     </p>
                 </div>
             </div>
@@ -194,7 +211,7 @@ export default function Homepage({ posts, content }) {
                 <Image
                     src="/static/images/logo.png"
                     alt=""
-                    className="absolute top-[95vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-[-5%] md:w-64"
+                    className="absolute top-[160vh] right-[25%] -z-1 h-auto w-50 opacity-20 md:right-[-5%] lg:top-[125vh] lg:w-64"
                     height={200}
                     width={200}
                     aria-hidden="true"
