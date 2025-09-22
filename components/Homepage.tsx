@@ -17,6 +17,7 @@ const options = [
     { value: 'chatGPT', label: 'ChatGPT' },
     { value: 'grok', label: 'Grok' },
     { value: 'claude', label: 'Claude' },
+    { value: 'gemini', label: 'Gemini' },
 ];
 
 export default function Homepage({ posts, content }) {

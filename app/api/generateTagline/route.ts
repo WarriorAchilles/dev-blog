@@ -3,12 +3,13 @@ import { ChatCompletionMessageParam } from 'openai/resources/index.mjs';
 import { NextRequest } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { type MessageParam } from '@anthropic-ai/sdk/resources/messages';
+import { GoogleGenAI } from '@google/genai';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 const anthropic = new Anthropic({
     apiKey: process.env.ANTHROPIC_API_KEY,
 });
+const gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Unified message type that works with both OpenAI and Anthropic SDKs
 type UnifiedMessageRole = 'system' | 'user' | 'assistant';
@@ -77,6 +78,13 @@ export async function GET(request: NextRequest) {
             if (contentBlock.type === 'text') {
                 tagline = contentBlock.text?.trim();
             }
+        } else if (model === 'gemini') {
+            console.log('generating gemini tagline...');
+            const geminiResponse = await gemini.models.generateContent({
+                model: 'gemini-2.5-flash-lite',
+                contents: messages[0].content + ' ' + messages[1].content,
+            });
+            tagline = geminiResponse.text;
         }
 
         return new Response(JSON.stringify({ tagline }), {
