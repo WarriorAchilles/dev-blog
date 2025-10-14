@@ -1,6 +1,8 @@
 {
+    "seo": 1,
+    "guide": 1,
     "experience": 6,
+    "projects": 3,
     "website": 4,
-    "devlog": 4,
-    "projects": 3
+    "devlog": 4
 }
