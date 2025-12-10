@@ -202,10 +202,11 @@ export default function Homepage({ posts, content }) {
                 </div>
                 <div className="flex items-center xl:w-1/2">
                     <p className="text-textBody text-1xl text-center sm:text-2xl">
-                        I'm a software engineer with 3+ years of experience building scalable,
-                        high-performance web and mobile applications using React, Next.js, Node.js,
-                        and TypeScript at an eCommerce software development agency. I'm skilled with
-                        RESTful and GraphQL APIs and with cloud technologies like AWS and Azure.
+                        I'm a senior software engineer with 3+ years of experience building
+                        scalable, high-performance web and mobile applications using React, Next.js,
+                        Node.js, and TypeScript at an eCommerce software development agency. I'm
+                        skilled with RESTful and GraphQL APIs and with cloud technologies like AWS
+                        and Azure.
                     </p>
                 </div>
                 <Image
