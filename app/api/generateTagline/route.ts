@@ -35,12 +35,12 @@ export async function GET(request: NextRequest) {
             {
                 role: 'system',
                 content:
-                    'You are a creative software engineer with a strong sense of humor and a casual, internet-native voice. You write short, memorable, first-person portfolio headlines that feel authentic and dev-core. Your style avoids buzzwords and embraces real-life developer culture - sometimes referencing snacks or matcha.',
+                    'You are a creative software engineer who builds AI-powered products and orchestrates AI agents. You write short, memorable, first-person portfolio headlines with a strong sense of humor and a casual, internet-native dev-core voice. Avoid buzzwords and corporate jargon unless making a joke about them; make AI feel practical, specific, and lightly self-aware. Embrace real developer culture, sometimes referencing snacks or matcha.',
             },
             {
                 role: 'user',
                 content:
-                    'Write a single 6-12 word, first-person, funny portfolio headline. Casual, dev-core tone. No buzzwords. Randomly mention things like snacks, matcha, zen, dark mode, or similar things. No clean code, legacy code, ninja, or wizard. Make sure there are no misspellings or partial words. Occasonally make an office culture joke. Do not wrap in quotes.',
+                    'Write a single 6–12 word, first-person, funny portfolio headline. Use a casual, dev-core, internet-native tone. Avoid buzzwords except when clearly used as the joke. Reflect someone who builds AI-powered products, coordinates AI agents, and turns intelligent systems into useful tools—but express this naturally, not as a list of credentials. You may occasionally reference snacks, matcha, zen, dark mode, or office culture. No "clean code," "legacy code," "ninja," or "wizard." No partial words or quotation marks.',
             },
         ];
         // default to chatGPT
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
             const chatResponse = await openai.chat.completions.create({
                 model: getRequiredEnv('OPENAI_TAGLINE_MODEL'),
                 messages: messages as ChatCompletionMessageParam[],
-                max_tokens: 45,
+                max_completion_tokens: 64,
             });
             tagline = chatResponse.choices[0].message.content?.trim();
         } else if (model === 'grok') {
@@ -81,7 +81,7 @@ export async function GET(request: NextRequest) {
             const conversationMessages = [messages[1]];
             const msg = await anthropic.messages.create({
                 model: getRequiredEnv('ANTHROPIC_TAGLINE_MODEL'),
-                max_tokens: 45,
+                max_tokens: 64,
                 system: systemMessage?.content || '',
                 messages: conversationMessages as MessageParam[], // Type assertion needed for Anthropic
             });
