@@ -5,11 +5,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { type MessageParam } from '@anthropic-ai/sdk/resources/messages';
 import { GoogleGenAI } from '@google/genai';
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-const anthropic = new Anthropic({
-    apiKey: process.env.ANTHROPIC_API_KEY,
-});
-const gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const FALLBACK_TAGLINE = 'I build things, then hunt down the missing semicolon.';
 
 // Unified message type that works with both OpenAI and Anthropic SDKs
 type UnifiedMessageRole = 'system' | 'user' | 'assistant';
@@ -20,11 +16,21 @@ interface UnifiedMessage {
     name?: string;
 }
 
+function getRequiredEnv(name: string): string {
+    const value = process.env[name];
+
+    if (!value) {
+        throw new Error(`Missing required environment variable: ${name}`);
+    }
+
+    return value;
+}
+
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const model = searchParams.get('model');
     try {
-        let tagline: string | undefined = '';
+        let tagline: string | undefined;
         const messages: UnifiedMessage[] = [
             {
                 role: 'system',
@@ -40,8 +46,9 @@ export async function GET(request: NextRequest) {
         // default to chatGPT
         if (!model || model === 'chatGPT') {
             console.log('generating chatGPT tagline...');
+            const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
             const chatResponse = await openai.chat.completions.create({
-                model: 'gpt-4o-mini',
+                model: getRequiredEnv('OPENAI_TAGLINE_MODEL'),
                 messages: messages as ChatCompletionMessageParam[],
                 max_tokens: 45,
             });
@@ -55,20 +62,25 @@ export async function GET(request: NextRequest) {
                     Authorization: 'Bearer ' + process.env.GROK_API_KEY,
                 },
                 body: JSON.stringify({
-                    model: 'grok-3-mini',
+                    model: getRequiredEnv('GROK_TAGLINE_MODEL'),
                     messages: messages,
                     stream: false,
                 }),
             });
+            if (!grokResponse.ok) {
+                throw new Error(`Grok request failed with status ${grokResponse.status}`);
+            }
+
             const grokJson = await grokResponse.json();
             tagline = grokJson.choices[0].message.content?.trim();
         } else if (model === 'claude') {
             console.log('generating claude tagline...');
+            const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
             // Extract system message for Anthropic (it goes in a separate field)
             const systemMessage = messages[0];
             const conversationMessages = [messages[1]];
             const msg = await anthropic.messages.create({
-                model: 'claude-sonnet-4-20250514',
+                model: getRequiredEnv('ANTHROPIC_TAGLINE_MODEL'),
                 max_tokens: 45,
                 system: systemMessage?.content || '',
                 messages: conversationMessages as MessageParam[], // Type assertion needed for Anthropic
@@ -80,21 +92,24 @@ export async function GET(request: NextRequest) {
             }
         } else if (model === 'gemini') {
             console.log('generating gemini tagline...');
+            const gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
             const geminiResponse = await gemini.models.generateContent({
-                model: 'gemini-2.5-flash-lite',
+                model: getRequiredEnv('GEMINI_TAGLINE_MODEL'),
                 contents: messages[0].content + ' ' + messages[1].content,
             });
             tagline = geminiResponse.text;
+        } else {
+            throw new Error(`Unsupported tagline model: ${model}`);
         }
 
-        return new Response(JSON.stringify({ tagline }), {
+        return new Response(JSON.stringify({ tagline: tagline || FALLBACK_TAGLINE }), {
             status: 200,
             headers: { 'Content-Type': 'application/json' },
         });
     } catch (e) {
         console.error(e);
-        return new Response(JSON.stringify({ error: 'Failed to generate tagline' }), {
-            status: 500,
+        return new Response(JSON.stringify({ tagline: FALLBACK_TAGLINE }), {
+            status: 200,
             headers: { 'Content-Type': 'application/json' },
         });
     }

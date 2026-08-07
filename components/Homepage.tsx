@@ -12,6 +12,7 @@ import SocialIcon from '@/components/social-icons';
 import CustomSelect from '@/components/CustomSelect';
 
 const MAX_DISPLAY = 5;
+const FALLBACK_TAGLINE = 'I build things, then hunt down the missing semicolon.';
 
 const options = [
     { value: 'chatGPT', label: 'ChatGPT' },
@@ -29,16 +30,30 @@ export default function Homepage({ posts, content }) {
 
     const fetchTagline = useCallback(async () => {
         setLoading(true);
-        if (process.env.NEXT_PUBLIC_IS_DEV === 'true') {
-            console.log('ai model is', aiModel);
-            setTagline('dev mode tagline*');
-        } else {
-            const res = await fetch(`/api/generateTagline?model=${aiModel}`);
-            const data = await res.json();
-            setTagline(data.tagline + '*');
-        }
+        try {
+            if (process.env.NEXT_PUBLIC_IS_DEV === 'true') {
+                console.log('ai model is', aiModel);
+                setTagline('dev mode tagline*');
+                return;
+            }
 
-        setLoading(false);
+            const res = await fetch(`/api/generateTagline?model=${aiModel}`);
+            if (!res.ok) {
+                throw new Error(`Tagline request failed with status ${res.status}`);
+            }
+
+            const data = await res.json();
+            if (typeof data.tagline !== 'string' || !data.tagline.trim()) {
+                throw new Error('Tagline response was empty or invalid');
+            }
+
+            setTagline(data.tagline.trim() + '*');
+        } catch (error) {
+            console.error('Failed to load AI tagline:', error);
+            setTagline(FALLBACK_TAGLINE + '*');
+        } finally {
+            setLoading(false);
+        }
     }, [aiModel]);
 
     useEffect(() => {
